@@ -1,13 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logo from '../assets/logo.svg';
+import menuOpen from '../assets/icon-menu.svg'
+import menuClose from '../assets/icon-menu-close.svg'
 
 function Navbar() {
+    const [showSidebar, setShowSidebar] = useState(false);
   return (
     <section className='navbar'>
         <div className="image">
             <img src={logo} alt="website logo" />
         </div>
-        <div className="nav-links">
+        <div className='side-buttons' onClick={()=>setShowSidebar(true)}>
+            <img src={menuOpen} alt="" />
+        </div>
+        <div className={showSidebar ? "nav-links-MobileMenu" : "nav-links"}>
+            <button className='side-buttons' onClick={()=>setShowSidebar(false)}>
+                <img src={menuClose} alt="" />
+            </button> 
             <ul>
                 <li>
                     <a href="#">Home</a>
